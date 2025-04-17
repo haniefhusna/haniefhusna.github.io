@@ -135,6 +135,22 @@
         <a href="#">LinkedIn</a>
         <a href="#">Twitter</a>
       </div>
+
+      <p>Total Visitors: <span id="visitor-count">Loading...</span></p>
+
+<script>
+  // Ganti "nama-web-kamu" dengan nama unikmu
+  const counterKey = "https://haniefhusna.github.io/";
+
+  fetch(`https://api.countapi.xyz/hit/${counterKey}/visits`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("visitor-count").innerText = data.value;
+    });
+</script>
+
+<img src="https://visitor-badge.glitch.me/badge?page_id=haniefhusna.haniefhusna/github.io" alt="visitor badge"/>
+
     </footer>
     <script src="script.js"></script>
   </body>
