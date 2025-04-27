@@ -167,5 +167,32 @@ Hanief Husna
 
     </footer>
     <script src="script.js"></script>
+
+<!-- Div untuk status update -->
+<div id="status">Checking update...</div>
+
+<!-- Script untuk cek update -->
+<script>
+  async function checkUpdate() {
+    try {
+      const response = await fetch('https://webhook-server-5w22ld9ay-haniefhusnas-projects.vercel.app/api/check-update');
+      const data = await response.json();
+
+      const statusDiv = document.getElementById('status');
+      if (data.update) {
+        statusDiv.innerText = "🔔 Data Updated!";
+        // Kamu bisa tambahkan logika fetch data baru di sini
+      } else {
+        statusDiv.innerText = "No Update";
+      }
+    } catch (error) {
+      console.error('Error checking update:', error);
+      document.getElementById('status').innerText = "Error checking update";
+    }
+  }
+
+  setInterval(checkUpdate, 5000); // Cek setiap 5 detik
+</script>
+
   </body>
 </html>
