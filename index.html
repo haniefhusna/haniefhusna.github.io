@@ -178,13 +178,15 @@ Hanief Husna
       // const response = await fetch('https://webhook-server-gyrvsqfxv-haniefhusnas-projects.vercel.app/api/check-update');
       const response = await fetch('https://webhook-server-virid.vercel.app/api/check-update');
       const data = await response.json();
+      let timeStamp = new Date(data.timestamp).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
 
       const statusDiv = document.getElementById('status');
       if (data.update) {
-        statusDiv.innerText = "🔔 Data Updated!";
+        statusDiv.innerText = "🔔 Data Updated ";
         // Kamu bisa tambahkan logika fetch data baru di sini
       } else {
-        statusDiv.innerText = "No Update";
+        // statusDiv.innerText = "No Update";
+        statusDiv.innerText = `Latest Data Updated on ${timeStamp}`;
       }
     } catch (error) {
       console.error('Error checking update:', error);
