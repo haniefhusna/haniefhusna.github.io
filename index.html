@@ -179,8 +179,10 @@ Hanief Husna
       const response = await fetch('https://webhook-server-virid.vercel.app/api/check-update');
       const data = await response.json();
       let timeStamp; //= await new Date(data.lastUpdateTime).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-      if(data.lastUpdateTime !== null){
+      if(data.lastUpdateTime){
         timeStamp = await new Date(data.lastUpdateTime).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+      } else {
+        timeStamp = timeStamp;
       }
       // let timeStamp;
 
