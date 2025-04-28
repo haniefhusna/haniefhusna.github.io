@@ -183,12 +183,12 @@ Hanief Husna
 
       const statusDiv = document.getElementById('status');
       if (data.update) {
-        statusDiv.innerText = "🔔 Data Updated ";
+        statusDiv.innerText = `🔔 Data Updated at ${timeStamp}`;
         timeStamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
         // Kamu bisa tambahkan logika fetch data baru di sini
       } else {
         // statusDiv.innerText = "No Update";
-        statusDiv.innerText = `Latest Data Updated on ${timeStamp}`;
+        statusDiv.innerText = `Latest Data Updated at ${timeStamp}`;
       }
     } catch (error) {
       console.error('Error checking update:', error);
